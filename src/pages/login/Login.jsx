@@ -5,6 +5,9 @@ import "./login.scss";
 const Login = () => {
   const [passwordType, setPasswordType] = useState("password");
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handlePasswordTypeChange = () => {
     if (passwordType === "password") {
       setPasswordType("text");
@@ -12,6 +15,22 @@ const Login = () => {
       setPasswordType("password");
     }
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // prevent errors before submission
+    if (!email.includes("@") || !email.includes(".")) {
+      return alert("Its an email type");
+    }
+    if (password.length < 7) {
+      return alert("password should be at least 8 characters long");
+    }
+    console.log("Password: ", password, "Email: ", email);
+    alert("Submitted successfully");
+  };
+
+  // if checked button is checked, save token in local storage
+
   return (
     <div className="grid grid-cols-3 gap-4">
       <section className="col-span-2">
@@ -28,7 +47,7 @@ const Login = () => {
           </p>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="my-4">
             <label
               htmlFor="email"
@@ -39,9 +58,11 @@ const Login = () => {
             <br />
             <div className="relative">
               <input
-                type="text"
+                type="email"
+                onChange={(event) => setEmail(event.target.value)}
                 className="w-full px-4 py-2 leading-tight text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500"
                 placeholder="email@example.com"
+                required
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 <i className="fa-solid fa-envelope"></i>
@@ -58,8 +79,10 @@ const Login = () => {
             <div className="relative">
               <input
                 type={passwordType}
+                onChange={(event) => setPassword(event.target.value)}
                 className="w-full px-4 py-2 leading-tight text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500"
                 placeholder="*******************"
+                required
               />
               <div
                 className="absolute inset-y-0 right-0 flex items-center pr-3"
@@ -91,7 +114,7 @@ const Login = () => {
               Forgot password?
             </p>
           </div>
-          <Button fullWidth className="rounded-full" color="red">
+          <Button fullWidth className="rounded-full" color="red" type="submit">
             Submit
           </Button>
         </form>

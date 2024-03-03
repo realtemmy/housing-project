@@ -1,0 +1,23 @@
+.loader-container {
+  position: fixed;
+  background-color: rgb(255, 0, 0, .4);
+  z-index: 2000;
+  width: 100%;
+  top: 0;
+
+  height: 100vh;
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  div {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: whitesmoke;
+  }
+}

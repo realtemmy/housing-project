@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Notification from "../Notification/Notification";
 
 import {
   List,
@@ -24,6 +25,7 @@ const Navigation = () => {
 
   return (
     <>
+      {<Notification message={"This is a trial something yh"} />}
       <div className="bg-gray-100 relative">
         <section>
           <div className="flex justify-between items-center p-4">
