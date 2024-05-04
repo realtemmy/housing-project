@@ -134,16 +134,21 @@ const Categories = () => {
       ],
     },
   ];
-  return <div>
-    {
-        types.map((type, idx) => <div key={idx}>
-            <article>
-                <h4 className="font-semibold text-2xl capitalize my-4">{type.name}</h4>
-                <CategoryItem properties={type.properties} />
-            </article>
-            </div>)
-    }
-  </div>;
+  return (
+    <div>
+      <h4 className="font-semibold text-lg my-4">Categories</h4>
+      {types.map((type, idx) => (
+        <div key={idx}>
+          <article>
+            <h4 className="font-semibold text-xl capitalize my-4">
+              {type.name}
+            </h4>
+            <CategoryItem properties={type.properties} location={type.name} />
+          </article>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Categories;

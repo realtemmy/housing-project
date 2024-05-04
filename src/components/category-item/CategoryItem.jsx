@@ -1,12 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Avatar } from "@material-tailwind/react";
 
-const CategoryItem = ({ properties }) => {
+import './category-item.scss'
+
+const CategoryItem = ({ properties, location }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/${location}`)
+  };
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="category-container">
       {properties.map((prop, idx) => {
         return (
-          <article className="border rounded-3xl py-4" key={idx}>
+          <article className="item border rounded-3xl shadow py-4" key={idx}>
             <div className="flex items-center gap-3 mb-2 px-4">
               <Avatar
                 size="xs"
@@ -14,8 +22,8 @@ const CategoryItem = ({ properties }) => {
               />
               <div className="capitalize">{prop.owner}</div>
             </div>
-            <div>
-              <img src={prop.image} alt={prop.owner} />
+            <div onClick={handleNavigate}>
+              <img src={prop.image} className="image" alt={prop.owner} />
             </div>
             <div className="mx-6">
               <p className="text-sm">open house {prop.dateListed}</p>

@@ -3,6 +3,7 @@ import { Input, Button } from "@material-tailwind/react";
 import CarouselComponent from "../../components/carousel/Carousel";
 import Categories from "../../components/categories/Categories";
 import Loader from "../../components/Loader/Loader";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   // eslint-disable-next-line no-unused-expressions
@@ -25,14 +26,13 @@ const Home = () => {
           </Button>
         </div>
         <article>
-          <h4 className="font-semibold text-lg my-4">Featured Listings</h4>
           <CarouselComponent />
         </article>
         <article>
-          <h4 className="font-semibold text-lg my-4">Categories</h4>
           <Categories />
         </article>
       </div>
+      <Footer />
     </>
   );
 };

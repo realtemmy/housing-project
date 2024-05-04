@@ -9,9 +9,9 @@ const Notification = ({ message }) => {
   const [show, setShow] = useState(true);
   return (
     <>
-      {show && (
+      {message.length > 0 && show && (
         <div className="flex items-center justify-between bg-blue-gray-200 px-3 py-2">
-          <p className="text-white">This is the Notification component</p>
+          <p className="text-white">{message}</p>
           <span
             className="text-sm cursor-pointer text-red-800"
             onClick={() => setShow(false)}

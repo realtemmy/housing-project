@@ -25,7 +25,7 @@ const Navigation = () => {
 
   return (
     <>
-      {<Notification message={"This is a trial something yh"} />}
+      {<Notification message={""} />}
       <div className="bg-gray-100 relative">
         <section>
           <div className="flex justify-between items-center p-4">
@@ -50,16 +50,13 @@ const Navigation = () => {
             {/* Navigation Links (Desktop) */}
             <nav className="hidden sm:flex space-x-4">
               <Link to="/" className="hover:text-gray-300">
-                Home
+                Profile
               </Link>
               <Link to="/" className="hover:text-gray-300">
-                services
+                History
               </Link>
               <Link to="/" className="hover:text-gray-300">
-                contact
-              </Link>
-              <Link to="/" className="hover:text-gray-300">
-                about
+                Settings 
               </Link>
             </nav>
           </div>
@@ -68,7 +65,7 @@ const Navigation = () => {
           <div className="max-w-80 text-right absolute right-0 z-10">
             <Card>
               <List>
-                <Link to="/">
+                <Link to="/profile">
                   <ListItem>
                     <ListItemPrefix>
                       <i className="fa-solid fa-user"></i>
